@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Budget;
 use App\Models\MonthlyIncome;
 use App\Models\Transaction;
+use App\Models\Category;
 use Carbon\Carbon;
 
 class DashboardController extends Controller
@@ -60,12 +61,31 @@ class DashboardController extends Controller
             ->take(7)
             ->get();
 
+        // Ambil persentase saat ini untuk modal
+        $currentPercentages = [
+            'living' => 0,
+            'playing' => 0,
+            'saving' => 0
+        ];
+
+        foreach ($budgets as $budget) {
+            $groupName = strtolower($budget->group->name);
+            if (isset($currentPercentages[$groupName])) {
+                $currentPercentages[$groupName] = $budget->limit_percentage ?? 0;
+            }
+        }
+
+        // Ambil kategori untuk modal transaksi
+        $categories = Category::with('group')->get();
+
         return view('dashboard', compact(
             'budgets',
             'income',
             'expense',
             'balance',
-            'latest'
+            'latest',
+            'currentPercentages',
+            'categories'
         ));
     }
 }

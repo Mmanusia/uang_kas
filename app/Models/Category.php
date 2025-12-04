@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Groups;
 
 class Category extends Model
 {
@@ -17,7 +18,7 @@ class Category extends Model
         return $this->hasMany(Transaction::class);
     }
 
-    public function groups()
+    public function group()
     {
         return $this->belongsTo(Groups::class);
     }

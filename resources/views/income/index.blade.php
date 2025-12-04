@@ -39,7 +39,7 @@
 
     <div class="mb-3">
         <label>Jumlah Penghasilan</label>
-        <input type="number" name="amount" class="form-control" placeholder="10000000" required>
+        <input type="number" name="amount" class="form-control" placeholder="10000000" required max="">
     </div>
 
     <button class="btn btn-primary mt-2">Simpan</button>

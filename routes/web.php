@@ -57,6 +57,12 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::post('/income', [MonthlyIncomeController::class, 'store'])->name('income.store');
     Route::get('/budgets', [BudgetController::class, 'index'])->name('budgets.index');
+    Route::post('/budgets/update-percentages', [BudgetController::class, 'updatePercentages'])->name('budgets.update-percentages');
     Route::post('/transactions', [TransactionController::class, 'store'])->name('transactions.store');
     Route::get('/reports/monthly', [ReportController::class, 'monthly'])->name('reports.monthly');
+});
+
+
+Route::get('/test', function () {
+    return view('testing.index');
 });

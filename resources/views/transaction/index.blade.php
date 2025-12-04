@@ -6,6 +6,11 @@
     <div class="alert alert-success">
         {{ session('success') }}
     </div>
+
+@elseif(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
 @endif
 
 <h3>Input Transaksi</h3>
@@ -17,7 +22,7 @@
         <label>Kategori</label>
         <select name="category_id" class="form-control" required>
             @foreach ($categories as $c)
-                <option value="{{ $c->id }}">{{ $c->name }} ({{ $c->type }})</option>
+                <option value="{{ $c->id }}">{{ $c->name }} ({{ $c->group ? $c->group->name : 'No Group' }})</option>
             @endforeach
         </select>
     </div>
