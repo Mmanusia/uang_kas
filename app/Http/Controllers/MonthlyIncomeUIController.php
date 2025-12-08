@@ -64,6 +64,6 @@ class MonthlyIncomeUIController extends Controller
             );
         }
 
-        return redirect()->back()->with('success', 'Monthly income recorded successfully');
+        return redirect()->route('dashboard')->with('success', 'Income Berhasil Di Tambahkan');
     }
 }

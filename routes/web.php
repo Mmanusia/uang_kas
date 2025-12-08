@@ -49,13 +49,11 @@ Route::get('/dashboard', function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('income', MonthlyIncomeUIController::class)->only(['index', 'store']);
-    Route::resource('transaction', TransactionUIController::class)->only(['index', 'store']);
     Route::get('/report', [ReportUIController::class, 'index'])->name('report.index');
 });
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::post('/income', [MonthlyIncomeController::class, 'store'])->name('income.store');
     Route::get('/budgets', [BudgetController::class, 'index'])->name('budgets.index');
     Route::post('/budgets/update-percentages', [BudgetController::class, 'updatePercentages'])->name('budgets.update-percentages');
     Route::post('/transactions', [TransactionController::class, 'store'])->name('transactions.store');
