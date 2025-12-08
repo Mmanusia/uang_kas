@@ -35,8 +35,7 @@ class MonthlyIncomeUIController extends Controller
             ]
         );
 
-        // Get groups: living, playing, saving
-        $groups = Groups::all(); // living = 1, playing = 2, saving = 3
+        $groups = Groups::all();
 
         $percentages = [
             'living' => 50,

@@ -20,25 +20,15 @@ Route::get('/', function () {
 });
 
 // autentikasi login, register, logout
-    Route::get('/register', [AuthController::class, 'registerPage'])->name('register');
-    Route::post('/register', [AuthController::class, 'registerProcess'])->name('register.process');
-
+Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'loginPage'])->name('login');
     Route::post('/login', [AuthController::class, 'loginProcess'])->name('login.process');
 
-    // Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/register', [AuthController::class, 'registerPage'])->name('register');
+    Route::post('/register', [AuthController::class, 'registerProcess'])->name('register.process');
+});
 
-// otomatis ke login jika belum autentikasi
-    Route::middleware([AuthMiddleware::class])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-    });
-
-    // otomatis ke dashboard jika sudah autentikasi
-    Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-    Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 Route::get('/dashboard', function () {
