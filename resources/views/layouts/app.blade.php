@@ -14,7 +14,8 @@
         </a>
 
         <div>
-            <a href="{{ route('dashboard') }}" class="btn btn-outline-light btn-sm me-2">Dashboard</a>
+            <a href="{{ route('dashboard') }}" class="btn btn-outline-light btn-sm me-2">Dashboarde</a>
+            <a href="{{ route('report.history') }}" class="btn btn-outline-light btn-sm me-2">Report</a>
             <a href="{{ route('income.index') }}" class="btn btn-outline-light btn-sm me-2">Income</a>
             <a href="{{ route('logout') }}" class="btn btn-outline-light btn-sm ms-2">Logout</a>
         </div>
