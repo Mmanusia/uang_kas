@@ -33,9 +33,9 @@
                     <td>Rp {{ number_format($item->remaining, 0, ',', '.') }}</td>
                     <td>
                         @if($item->remaining >= 0)
-                            <span class="badge bg-success">Surplus</span>
+                            <span class="badge bg-success">Hemat</span>
                         @else
-                            <span class="badge bg-danger">Defisit</span>
+                            <span class="badge bg-danger">Minus</span>
                         @endif
                     </td>
                     <td>

@@ -76,7 +76,7 @@ class DashboardController extends Controller
         }
 
         // Ambil kategori untuk modal transaksi
-        $categories = Category::with('group')->get();
+        $categories = Category::with('groups')->get();
 
         return view('dashboard', compact(
             'budgets',

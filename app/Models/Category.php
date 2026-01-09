@@ -18,8 +18,8 @@ class Category extends Model
         return $this->hasMany(Transaction::class);
     }
 
-    public function group()
+    public function groups()
     {
-        return $this->belongsTo(Groups::class);
+        return $this->belongsTo(Groups::class, 'group_id');
     }
 }
