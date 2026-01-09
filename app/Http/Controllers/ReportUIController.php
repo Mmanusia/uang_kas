@@ -16,4 +16,10 @@ class ReportUIController extends Controller
 
         return view('report.index');
     }
+
+    public function history(Request $request, ReportController $api)
+    {
+        $history = $api->history($request)->getData();
+        return view('report.history', compact('history'));
+    }
 }

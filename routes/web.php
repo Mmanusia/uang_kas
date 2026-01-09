@@ -40,6 +40,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('income', MonthlyIncomeUIController::class)->only(['index', 'store']);
     Route::get('/report', [ReportUIController::class, 'index'])->name('report.index');
+    Route::get('/report/history', [ReportUIController::class, 'history'])->name('report.history');
 });
 
 

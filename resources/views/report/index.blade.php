@@ -4,6 +4,10 @@
 
 <h3>Laporan Bulanan</h3>
 
+<div class="mt-3">
+    <a href="{{ route('report.history') }}" class="btn btn-info">Lihat Riwayat Bulanan</a>
+</div>
+
 <form class="mt-3">
     <div class="row">
         <div class="col-md-2">
