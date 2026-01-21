@@ -21,7 +21,7 @@ class TransactionController extends Controller
         ]);
 
         // Ambil kategori dengan group
-        $category = Category::with('group')->find($request->category_id);
+        $category = Category::with('groups')->find($request->category_id);
 
         $groups = Groups::where('id', $category->group_id)->first();
         $groupName = $groups ? $groups->name : 'kategori ini';
